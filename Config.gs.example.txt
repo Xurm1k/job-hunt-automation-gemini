@@ -1,0 +1,53 @@
+// ==========================================
+// PROJECT CONFIGURATION & FILTERING RULES
+// Instructions: Rename this file to Config.gs 
+// and customize your settings, criteria, and credentials.
+// ==========================================
+const CONFIG = {
+  // --- 1. API & STORAGE KEYS ---
+  // Get your free Gemini API key from Google AI Studio (aistudio.google.com)
+  GEMINI_API_KEY: "YOUR_GEMINI_API_KEY_HERE",
+  
+  // Google Spreadsheet ID from your tracking sheet URL
+  SPREADSHEET_ID: "YOUR_GOOGLE_SPREADSHEET_ID_HERE",
+  
+  // Google Drive Folder ID where generated PDF cover letters will be saved
+  PDF_FOLDER_ID: "YOUR_DRIVE_FOLDER_ID_HERE", 
+
+  // --- 2. GMAIL LABELS ---
+  GMAIL_LABEL_INPUT: "Job-Alerts",
+  GMAIL_LABEL_PROCESSED: "Job-Processed",
+  
+  // --- 3. SCORING & RESUME MAPPING ---
+  MIN_MATCH_SCORE: 85,
+
+  // You can define 1, 2, or as many CV templates as you need here!
+  CV_FILES: {
+    "Adm. BO": "YOUR_CV_BACKOFFICE_FILE_ID",
+    "Empfang-Verkauf": "YOUR_CV_RECEPTION_SALES_FILE_ID"
+    // "IT Support": "ANOTHER_FILE_ID_HERE"
+  },
+
+  // Sender information for DIN 5008 letter header
+  SENDER_INFO: {
+    name: "John Doe",
+    street: "Sample Street 123",
+    city: "12345 Sample City",
+    phone: "Phone: +49 123 456789",
+    email: "E-Mail: john.doe@example.com"
+  },
+
+  // --- 4. CUSTOMIZABLE AI FILTERING RULES & CRITERIA ---
+  // Edit these instructions to tailor the AI filter for your specific job search profile.
+  FILTER_RULES: `
+    You are a strict AI job matcher and analyst. Analyze the job alert email text and return the response strictly in JSON format.
+
+    STRICT FILTERS & EXCLUSIONS (Any violation results in strict SKIP and match_score = 0):
+    1. LOCATION & PUBLIC TRANSPORT (ÖPNV):
+       - Target location: Major city center or Remote/Hybrid within 60 minutes public transport limit.
+    2. PROFESSION EXCLUSIONS (Strict SKIP):
+       - Any Data Analyst positions, low-level call center agent roles, heavy physical labor, or warehouse work.
+    3. TARGET DOMAINS:
+       - Administration, office coordination, QA, customer support, reception, back-office.
+  `
+};
