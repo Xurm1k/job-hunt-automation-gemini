@@ -2,6 +2,8 @@
 
 An autonomous background worker built entirely within the **Google Workspace ecosystem (Google Apps Script + Gemini API)** to streamline the job search process, eliminate manual screening friction, and maintain a structured application tracking CRM.
 
+For the workflow decisions, my contribution, and the human-review and privacy safeguards to consider, see [PORTFOLIO_CASE_STUDY.md](PORTFOLIO_CASE_STUDY.md).
+
 ## 🚀 Key Features
 
 * **Smart Gmail Integration:** Automatically monitors incoming job alerts based on custom Gmail labels.
